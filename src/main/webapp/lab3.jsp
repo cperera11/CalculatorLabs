@@ -33,9 +33,7 @@
                 Length: <input type="number" value="" name="length"><br><br>
                 Width: <input type="number" value="" name="width"><br><br>
                 <input type="submit" name="submit" value="Calculate Area"> <br><br>
-
                 </div>
-
 
                 <h2 style="color:blue;">Circle Area Calculator</h2>
                 <div class="container" >
@@ -43,7 +41,6 @@
                     <form name="form2" id="form2" method="POST" action="Lab3Controller?calcType=circle">
                         Radius: <input type="number" value="" name="radius"><br><br>
                         <input type="submit" name="submit" value="Calculate Area"> <br><br>
-
                         </div>
 
                         <h2 style="color:blue;">Hypotenuse Side of a Triangle Calculator</h2>
@@ -53,7 +50,6 @@
                                 Adjacent Side: <input type="number" value="" name="adjacent"><br><br>
                                 Opposite Side: <input type="number" value="" name="opposite"><br><br>
                                 <input type="submit" name="submit" value="Calculate Area"> <br><br>
-
                                 </div>
                                 <h3> Result: ${msg}</h3><br>
 

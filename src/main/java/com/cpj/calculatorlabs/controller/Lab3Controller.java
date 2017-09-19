@@ -37,32 +37,33 @@ public class Lab3Controller extends HttpServlet {
 
         CalculatorLabService labServ = null;
         String calcType = request.getParameter("calcType");
-        String msg = "";
+        String rectanglemsg = "";
+        String circlemsg = "";
+        String trianglemsg = "";
         try {
             labServ = new CalculatorLabService();
 
-            String lStr = request.getParameter("length");
-            int length = Integer.parseInt(lStr);
-            String wStr = request.getParameter("width");
-            int width = Integer.parseInt(wStr);
-            String rStr = request.getParameter("radius");
-            int radius = Integer.parseInt(rStr);
-            String aStr = request.getParameter("adjacent");
-            int adjacent = Integer.parseInt(aStr);
-            String oStr = request.getParameter("opposite");
-            int opposite = Integer.parseInt(oStr);
-
+            request.setAttribute("calcType", calcType);
             if (calcType.equals("rectangle")) {
-                msg = labServ.calculateRectangleArea(length, width);
-                 request.setAttribute("msg", msg);
+                String lStr = request.getParameter("length");
+                int length = Integer.parseInt(lStr);
+                String wStr = request.getParameter("width");
+                int width = Integer.parseInt(wStr);
+                rectanglemsg = labServ.calculateRectangleArea(length, width);
+                request.setAttribute("rectanglemsg", rectanglemsg);
             } else if (calcType.equals("circle")) {
-                msg = labServ.calculateAreaOfaCircle(radius);
-                 request.setAttribute("msg", msg);
+                String rStr = request.getParameter("radius");
+                int radius = Integer.parseInt(rStr);
+                circlemsg = labServ.calculateAreaOfaCircle(radius);
+                request.setAttribute("circlemsg", circlemsg);
             } else {
-                msg = labServ.calculateHypotenuseOfaTriangle(adjacent, opposite);
-                 request.setAttribute("msg", msg);
+                String aStr = request.getParameter("adjacent");
+                int adjacent = Integer.parseInt(aStr);
+                String oStr = request.getParameter("opposite");
+                int opposite = Integer.parseInt(oStr);
+                trianglemsg = labServ.calculateHypotenuseOfaTriangle(adjacent, opposite);
+                request.setAttribute("trianglemsg", trianglemsg);
             }
-           
 
         } catch (Exception e) {
             request.setAttribute("errMsg", e.getMessage());
